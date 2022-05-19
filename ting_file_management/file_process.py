@@ -11,7 +11,7 @@ def process(path_file, instance):
     # Validações e leitura do TXT baseado na função "txt_importer"
     importar_txt = txt_importer(path_file)
 
-    # Formata as informaçõe de acordo com o Readme
+    # Formata as informações de acordo com o Readme
     txt_processado = {
         'nome_do_arquivo': path_file,
         'qtd_linhas': len(importar_txt),
@@ -25,7 +25,10 @@ def process(path_file, instance):
 
 
 def remove(instance):
-    """Aqui irá sua implementação"""
+    if not instance:
+        return sys.stdout.write("Não há elementos\n")
+    tirar_da_fila = instance.dequeue()["nome_do_arquivo"]
+    sys.stdout.write(f"Arquivo {tirar_da_fila} removido com sucesso\n")
 
 
 def file_metadata(instance, position):
